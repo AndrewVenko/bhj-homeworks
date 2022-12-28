@@ -1,16 +1,16 @@
 'use strict';
 // Объявляем переменные
-let deadMoles = document.querySelector('#dead');
-let lostMoles = document.querySelector('#lost');
-let hole1 = document.querySelector('#hole1');
-let hole2 = document.querySelector('#hole2');
-let hole3 = document.querySelector('#hole3');
-let hole4 = document.querySelector('#hole4');
-let hole5 = document.querySelector('#hole5');
-let hole6 = document.querySelector('#hole6');
-let hole7 = document.querySelector('#hole7');
-let hole8 = document.querySelector('#hole8');
-let hole9 = document.querySelector('#hole9');
+const deadMoles = document.querySelector('#dead');
+const lostMoles = document.querySelector('#lost');
+const hole1 = document.querySelector('#hole1');
+const hole2 = document.querySelector('#hole2');
+const hole3 = document.querySelector('#hole3');
+const hole4 = document.querySelector('#hole4');
+const hole5 = document.querySelector('#hole5');
+const hole6 = document.querySelector('#hole6');
+const hole7 = document.querySelector('#hole7');
+const hole8 = document.querySelector('#hole8');
+const hole9 = document.querySelector('#hole9');
 function searchMoles(name){
     let holeClass = name.classList.contains("hole_has-mole");
     // счетчики

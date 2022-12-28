@@ -1,8 +1,8 @@
 'use strict';
 // Объявляем переменные
-let clickerCounter = document.querySelector("#clicker__counter");
-let clickerCookie = document.querySelector(".clicker__cookie");
-let speedClicker = document.querySelector("#clicker_speed");
+const clickerCounter = document.querySelector("#clicker__counter");
+const clickerCookie = document.querySelector(".clicker__cookie");
+const speedClicker = document.querySelector("#clicker_speed");
 let date;
 // Функция для подсчета количества кликов
 function countClicker(){
