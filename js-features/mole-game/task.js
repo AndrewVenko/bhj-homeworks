@@ -2,17 +2,12 @@
 // Объявляем переменные
 const deadMoles = document.querySelector('#dead');
 const lostMoles = document.querySelector('#lost');
-const hole1 = document.querySelector('#hole1');
-const hole2 = document.querySelector('#hole2');
-const hole3 = document.querySelector('#hole3');
-const hole4 = document.querySelector('#hole4');
-const hole5 = document.querySelector('#hole5');
-const hole6 = document.querySelector('#hole6');
-const hole7 = document.querySelector('#hole7');
-const hole8 = document.querySelector('#hole8');
-const hole9 = document.querySelector('#hole9');
-function searchMoles(name){
-    let holeClass = name.classList.contains("hole_has-mole");
+const hole = document.querySelectorAll('.hole');
+const arrayHole = Array.from(hole);
+let numerId = 1;
+function searchMoles(positionId){
+    let holeId = document.querySelector(positionId);
+    let holeClass = holeId.classList.contains("hole_has-mole");
     // счетчики
     if(holeClass){
         deadMoles.textContent = +deadMoles.textContent + 1;
@@ -30,12 +25,8 @@ function searchMoles(name){
         window.alert('Победа!');
     };
 };
-hole1.addEventListener("click", function(){searchMoles(hole1)});
-hole2.addEventListener("click", function(){searchMoles(hole2)});
-hole3.addEventListener("click", function(){searchMoles(hole3)});
-hole4.addEventListener("click", function(){searchMoles(hole4)});
-hole5.addEventListener("click", function(){searchMoles(hole5)});
-hole6.addEventListener("click", function(){searchMoles(hole6)});
-hole7.addEventListener("click", function(){searchMoles(hole7)});
-hole8.addEventListener("click", function(){searchMoles(hole8)});
-hole9.addEventListener("click", function(){searchMoles(hole9)});
+for(let position in arrayHole) {
+    let positionId = '#' + 'hole'+ numerId;
+    numerId = numerId + 1;
+    arrayHole[position].addEventListener("click", function(){searchMoles(positionId)});
+};
