@@ -1,14 +1,17 @@
+// переменные
 const menuLinks = document.querySelectorAll('.menu__link');
 const menuSub = document.querySelectorAll('.menu_sub');
-const parent = menuLinks[4].closest('.menu_sub');
-const arrayMenu = Array.from(menuLinks);
-let arraySub = Array.from(menuSub);
-function openMenu(){
-    let href = menuLinks[1].getAttribute('href');
-    if(href === ''){
-         return arraySub[0].classList.add('menu_active');
+const arrayLinks = Array.from(menuLinks);
+const arraySub = Array.from(menuSub);
+// функция открытия меню
+function openLink(position){
+    let parent = arrayLinks[position+1].closest(".menu_sub");
+    console.log(parent);
+    if(parent){
+        parent.classList.add("menu_active");
     };
 };
-arrayMenu[1].addEventListener('click', openMenu)
-console.log(arrayMenu);
-console.log(parent);
+// задание обработчика событий
+for(let position in arrayLinks){
+    arrayLinks[position].addEventListener("click", function(){openLink(position)}), false;
+};
