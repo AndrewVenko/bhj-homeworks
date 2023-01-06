@@ -2,7 +2,7 @@
 const divImgs = document.querySelectorAll('.slider__item');
 const arrowPrev = document.querySelector('.slider__arrow_prev');
 const arrowNext = document.querySelector('.slider__arrow_next');
-const arrayImg = Array.from(divImg);
+const arrayImg = Array.from(divImgs);
 // функции перехода по стрелкам
 function leafNext(){
     let indexActive;
@@ -20,7 +20,7 @@ function leafNext(){
     return arrayImg[indexActive].classList.add('slider__item_active');
 };
 function leafPrev(){
-    let indexActive;
+    let indexActive = arrayImg.indexOf(element => element.classList.contains("slider__item_active"));
     for(let element of arrayImg){
         if(element.classList.contains("slider__item_active")){
             indexActive = arrayImg.indexOf(element);
