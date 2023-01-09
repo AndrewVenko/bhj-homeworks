@@ -13,7 +13,7 @@ function leafNext(){
     };
     arrayImg[indexActive].classList.remove('slider__item_active');
     if(indexActive < (arrayImg.length-1)){
-        indexActive = indexActive + 1;
+        indexActive += 1;
     } else{
         indexActive = 0;
     };
@@ -28,7 +28,7 @@ function leafPrev(){
     };
     arrayImg[indexActive].classList.remove('slider__item_active');
     if(indexActive > 0){
-        indexActive = indexActive - 1;
+        indexActive -= 1;
     } else{
         indexActive = (arrayImg.length-1);
     };
