@@ -1,25 +1,19 @@
 'use strict';
 // задание переменных
-const modalMain = document.querySelector('#modal_main');
-const modalSuccess = document.querySelector('#modal_success');
+const modals = document.querySelectorAll('.modal');
 const modalClose = document.querySelectorAll('.modal__close_times');
 const linkGood = document.querySelector('.show-success');
 const arrayClose = Array.from(modalClose);
-console.log(arrayClose);
 // открывать окно при загрузке страницы
-modalMain.classList.add('modal_active');
-// закрытие окна main
+modals[0].classList.add('modal_active');
+// закрытие окон
 for(let element of arrayClose){
     element.addEventListener('click', function(){
-        if(element.closest('#modal_main')){
-            element.closest('#modal_main').remove('modal_active');
-        } else{
-            element.closest('#modal_success').remove('modal_active');
-        };
+        element.closest('.modal').remove('modal_active');
     });
 };
 // открытие окна success
 linkGood.addEventListener('click', function(){
-    modalMain.classList.remove('modal_active');
-    modalSuccess.classList.add('modal_active');
+    modals[0].classList.remove('modal_active');
+    modals[1].classList.add('modal_active');
 });

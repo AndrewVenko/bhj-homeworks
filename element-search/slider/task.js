@@ -5,12 +5,7 @@ const arrowNext = document.querySelector('.slider__arrow_next');
 const arrayImg = Array.from(divImgs);
 // функции перехода по стрелкам
 function leafNext(){
-    let indexActive;
-    for(let element of arrayImg){
-        if(element.classList.contains("slider__item_active")){
-            indexActive = arrayImg.indexOf(element);
-        };
-    };
+    let indexActive = arrayImg.findIndex(element => element.classList.contains("slider__item_active"));
     arrayImg[indexActive].classList.remove('slider__item_active');
     if(indexActive < (arrayImg.length-1)){
         indexActive += 1;
@@ -20,12 +15,7 @@ function leafNext(){
     return arrayImg[indexActive].classList.add('slider__item_active');
 };
 function leafPrev(){
-    let indexActive = arrayImg.indexOf(element => element.classList.contains("slider__item_active"));
-    for(let element of arrayImg){
-        if(element.classList.contains("slider__item_active")){
-            indexActive = arrayImg.indexOf(element);
-        };
-    };
+    let indexActive = arrayImg.findIndex(element => element.classList.contains("slider__item_active"));
     arrayImg[indexActive].classList.remove('slider__item_active');
     if(indexActive > 0){
         indexActive -= 1;

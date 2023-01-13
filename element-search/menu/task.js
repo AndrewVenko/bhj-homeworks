@@ -1,28 +1,23 @@
 // переменные
 const menuLinks = document.querySelectorAll('.menu__link');
-const menuSub = document.querySelectorAll('.menu_sub');
+const menuItems = document.querySelectorAll('.menu__item');
 const arrayLinks = Array.from(menuLinks);
-const arraySub = Array.from(menuSub);
+const arrayItems = Array.from(menuItems);
 // функция открытия меню
 function openLink(element, event){
-    if(element.matches('a[href=""]')){
-        if(arraySub[0].classList.contains('menu_active')){
-            arraySub[0].classList.remove('menu_active');
-        } else{
-            arraySub[0].classList.add('menu_active');
+    for(let elementItem of arrayItems){
+        if(element === elementItem.firstElementChild && element.matches('a[href=""]')){
+            let menuSub = elementItem.querySelector('.menu__item > .menu_sub');
+            if(menuSub.classList.contains('menu_active')){
+                menuSub.classList.remove('menu_active');
+            } else{
+                menuSub.classList.add('menu_active');
+            };
+            event.preventDefault();
         };
-        event.preventDefault(); 
-    } else if(element.matches('a[href=""]')){
-        if(arraySub[1].classList.contains('menu_active')){
-            arraySub[1].classList.remove('menu_active');
-        } else{
-            arraySub[1].classList.add('menu_active');
-        };
-        event.preventDefault();
     };
 };
 // задание обработчика событий
 for(let element of arrayLinks){
-    console.log(element);
     element.addEventListener("click", function(){openLink(element, event)});
 };
