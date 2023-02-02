@@ -25,7 +25,8 @@ chat.addEventListener('dblclick', function(){
 });
 input.addEventListener('keydown', function(event){
     if(event.key === 'Enter'){
-        messages.innerHTML += `
+        if(input.value !== ''){
+            messages.innerHTML += `
         <div class="message message_client">
            <div class="message__time">${new Date().toLocaleTimeString().slice(0,-3)}</div>
            <div class="message__text">${input.value}
@@ -44,6 +45,7 @@ input.addEventListener('keydown', function(event){
            </div>
         </div>
         `
+        };
     };
     if(messages.getBoundingClientRect().bottom > messages.clientHeight){
         messages.scrollBy(messages.clientWidth, window.innerHeight);
