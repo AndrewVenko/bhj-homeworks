@@ -8,15 +8,25 @@ for(let element of linksArray){
 }
 function popupTooltip(element, event){
     event.preventDefault();
-    for(let element of linksArray){
-        if(element.childElementCount === 1){
-            element.firstElementChild.remove();
+    for(let elem of linksArray){
+        if((elem.childElementCount === 1) && (elem === element)){
+            let divRemove =  element.firstElementChild;
+            if((divRemove !== null) && divRemove.classList.contains('tooltip_active')){
+                divRemove.classList.remove('tooltip_active');
+                return;
+            } else{
+                divRemove.remove();
+            };
+        }else if((elem.childElementCount === 1) && (elem !== element)){
+            elem.firstElementChild.remove();
         };
     };
     const attributeTitle = element.getAttribute('title');
     element.insertAdjacentHTML('beforeend', `<div class="tooltip">${attributeTitle}</div>`);
     const div = document.querySelector('.tooltip');
-    if(!div.classList.contains('tooltip_active')){
-        div.classList.add('tooltip_active');
-    };
+    div.classList.add('tooltip_active');
+    const left = element.getBoundingClientRect().left + 10;
+    const top = +element.getBoundingClientRect().top + 20;
+    div.style.left = left + 'px';
+    div.style.top = top + 'px';
 };

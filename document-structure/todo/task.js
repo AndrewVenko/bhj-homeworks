@@ -7,6 +7,9 @@ const taskDiv = document.querySelector('.tasks__list');
 function addTask(event){
     event.preventDefault();
     let task = input.value;
+    if(task.trim() === ''){
+        return;
+    };
     taskDiv.insertAdjacentHTML('beforeend', 
     `<div class="task">
        <div class="task__title">
