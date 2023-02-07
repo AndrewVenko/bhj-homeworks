@@ -25,7 +25,8 @@ chat.addEventListener('dblclick', function(){
 });
 input.addEventListener('keydown', function(event){
     if(event.key === 'Enter'){
-        if(input.value !== ''){
+        let text = input.value;
+        if(text.trim() !== ''){
             messages.innerHTML += `
         <div class="message message_client">
            <div class="message__time">${new Date().toLocaleTimeString().slice(0,-3)}</div>
