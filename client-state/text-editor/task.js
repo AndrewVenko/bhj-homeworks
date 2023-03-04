@@ -9,5 +9,5 @@ text.addEventListener('change', function(event){
 });
 btn_clear.addEventListener('click', function(){
     text.value = '';
-    localStorage.clear();
-})
+    localStorage.removeItem('text');
+});
